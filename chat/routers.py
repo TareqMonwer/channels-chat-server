@@ -3,5 +3,6 @@ from chat import consumers
 
 
 websocket_urlpatterns = [
-    re_path(r'ws/chat/(?P<room_name>\w+)/$', consumers.ChatConsumer.as_asgi()),
+    # consumers.ChatConsumer is the synchronous version of the consumer.
+    re_path(r'ws/chat/(?P<room_name>\w+)/$', consumers.AsyncChatConsumer.as_asgi()),
 ]
