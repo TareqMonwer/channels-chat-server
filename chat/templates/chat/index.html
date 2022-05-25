@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8" />
-    <title>Chat Rooms</title>
-</head>
-
-<body>
+{% block content %}
     What chat room would you like to enter?<br>
     <input id="room-name-input" type="text" size="100"><br>
-    <input id="room-name-submit" type="button" value="Enter">
+    <input class="btn btn-sm btn-primary mt-1" id="room-name-submit" type="button" value="Enter">
+{% endblock %}
 
+{% block script %}
     <script>
         document.querySelector('#room-name-input').focus();
         document.querySelector('#room-name-input').onkeyup = function (e) {
@@ -24,6 +20,4 @@
             window.location.pathname = '/chat/' + roomName + '/';
         };
     </script>
-</body>
-
-</html>
+{% endblock %}
